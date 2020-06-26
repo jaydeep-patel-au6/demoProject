@@ -1,0 +1,36 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/song" method="POST" autocomplete="off">
+<input type="hidden" name="_id" value="{{song._id}}">
+    <div class="form-group">
+        <label>Song Name</label>
+        <input type="text" class="form-control" name="songName" placeholder="Song name" value="{{song.songName}}">
+       
+    </div>
+    <div class="form-group">
+        <label>singerName</label>
+        <input type="text" class="form-control" name="singerName" placeholder="singerName" value="{{song.singerName}}">
+         
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+        <label>gener</label>
+        <input type="text" class="form-control" name="gener" placeholder="gener Number" value="{{song.gener}}">
+        </div>
+
+        <div class="form-group col-md-6">
+        <label>duration</label>
+        <input type="text" class="form-control" name="duration" placeholder="enter song length" value="{{song.duration}}">
+        </div>
+
+        <div class="form-group col-md-6">
+        <label>Ratings</label>
+        <input type="text" class="form-control" name="ratings" placeholder="give rationg out of 10" value="{{song.ratings}}">
+        </div>
+
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>&nbsp;Submit</button>
+        <a class="btn btn-secondary" href="/song/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>

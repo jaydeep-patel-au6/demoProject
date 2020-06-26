@@ -1,0 +1,58 @@
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+<script>
+$(document).ready(function (){
+   var table = $('#myTable').DataTable({
+      dom: 'Alfrtip',
+      alphabetSearch: {
+         column: 0
+      }        
+   });
+});
+</script>
+
+
+
+<h3><a class="btn btn-secondary" href="/song"><i class="fa fa-plus"></i> Create New</a></h3>
+<h3>{{viewTitle}}</h3><br>
+<div class="form-group col-md-6">
+        <h4><label>Search</label></h4>
+        <input type="text" class="form-control"  id="myInput" placeholder="Search anything" >
+</div><br>
+
+<table class="table table-striped" id="myTable">
+        <thead>
+        <tr>
+            <th>Song Name</th>
+            <th>Singer Name</th>
+            <th> Song gener</th>
+            <th>Duration</th>
+            <th>Ratings</th>
+            <th>sd</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.songName}}</td>
+            <td>{{this.singerName}}</td>
+            <td>{{this.gener}}</td>
+            <td>{{this.duration}}</td>
+            <td>{{this.ratings}}</td>
+            <td>
+                <a href="/song/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/song/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

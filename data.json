@@ -1,0 +1,71 @@
+[{
+  "_id": {
+    "$oid": "5ed20a4146a79f3160f68470"
+  },
+  "songName": "aa12",
+  "singerName": "aa12",
+  "gener": "aa12",
+  "duration": 7712,
+  "ratings": 7712,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ed20a97ce8ba317f0a9845c"
+  },
+  "songName": "aa",
+  "singerName": "aa",
+  "gener": "aa",
+  "duration": 10,
+  "ratings": 5,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ed20d5cbc7ceb20c0763435"
+  },
+  "songName": "jaydeep",
+  "singerName": "jaydeep",
+  "gener": "dscdc",
+  "duration": 55,
+  "ratings": 5,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ed20d6bbc7ceb20c0763436"
+  },
+  "songName": "jaydeep",
+  "singerName": "jaydeep",
+  "gener": "dcn",
+  "duration": 84,
+  "ratings": 4,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ed20d7dbc7ceb20c0763437"
+  },
+  "songName": "jaydeep",
+  "singerName": "jaydeep",
+  "gener": "dc",
+  "duration": 88,
+  "ratings": 6,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ed213271b2b9609b86967fb"
+  },
+  "songName": "ss",
+  "singerName": "ss",
+  "gener": "ss",
+  "duration": 1,
+  "ratings": 1,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ed215116efefc500496c73c"
+  },
+  "songName": "aa",
+  "singerName": "jaydeep",
+  "gener": "sdk",
+  "duration": 77,
+  "ratings": 7,
+  "__v": 0
+}]
