@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const songsController = require('./controllers/songsController') // path for controllers
-
+const PORT = process.env.PORT || 3001
 const app = express()
 
 //bodyparser middelware to use url data
@@ -22,10 +22,7 @@ app.set('views', path.join(__dirname, '/views/'))
 app.engine('hbs', exphbs({ extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: './views/layouts/'}))
 app.set('view engine', 'hbs')
 
-//server port
-app.listen(3001 , ()=>{
-    console.log('Server started at port 3000')
-})
+
 
 //path localhost:3000/song
 app.use('/song', songsController)
@@ -41,3 +38,8 @@ mongoose
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+
+  //server port
+app.listen(PORT , ()=>{
+  console.log('Server started at port 3000')
+})
