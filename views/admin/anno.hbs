@@ -3,7 +3,7 @@
 <h3>{{viewTitle1}}</h3><br>
 
 <!-- announceent form -->
-<form action="/anno" method="post">
+<form action="/anno?hemant=PATCH" method="post">
 <input type="hidden" name="_id" value="{{anno._id}}">
   <div class="form-group">
     <label for="exampleInputEmail1">Title</label>
@@ -45,8 +45,8 @@
             <td>{{this.note}}</td>
             <td>{{this.time}}</td>
              <td>
-               
-                <a href="/anno/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+               <form action="/anno??hemant=PATCH" method="post">
+                <a href="/anno/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;</form>
                 <a href="/anno/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
             </td>
            

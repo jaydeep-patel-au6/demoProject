@@ -13,7 +13,7 @@ var attSchema = new mongoose.Schema({
         type: Number,
         required: 'roll_no is required'
     },
-    student_id: {type:String, ref:'Stud_Reg', required: 'student attendance is required'},
+    student_id: {type:String, ref:'Stud_Reg'},
     jan:{
         type: Number
     },

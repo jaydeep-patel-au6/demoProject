@@ -1,17 +1,12 @@
-import express from "express";
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-
-
-import mailer from "../utils/nodemailer";
-
+var express = require("express");
+var mongoose = require("mongoose");
+var bcrypt = require("bcrypt");
+var jwt = require("jsonwebtoken");
 require("dotenv").config();
-import passport from "passport";
-import passportLocalMongoose from "passport-local-mongoose";
-import findOrCreate from "mongoose-findorcreate";
-import auth from "../middleware/check-auth";
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const findOrCreate = require("mongoose-findorcreate");
 var student = express.Router();
 
 //SCHEMA
@@ -49,8 +44,9 @@ passport.use(
       Student.findOne({ googleId: profile.id }, function (err, user) {
         if (err) {
           return cb(err);
-        } else if (!user) {
-          var gauthstudent = new Student({
+        }
+       else if (!user) {
+          gauthstudent = new Student({
             _id: mongoose.Types.ObjectId(),
             name: profile.displayName,
             googleId: profile.id,
@@ -62,6 +58,8 @@ passport.use(
         } else {
           //found user. Return
           return cb(err, user);
+          
+          
         }
       });
     }
@@ -72,55 +70,17 @@ passport.use(
 
 student.get(
   "/auth/google",
-  passport.authenticate("google", { scope: ["profile"] })
+  passport.authenticate("google", { scope: ["profile"] }),
 );
 
-student.get(
-  "/auth/google/reg",
-  passport.authenticate("google", { failureRedirect: "/stu_reg/reg/" }),
+
+student.get("/auth/google/reg",
+  passport.authenticate("google", { failureRedirect: "/stu_reg/reg/", }),
   function (req, res) {
-    //Successful authentication, redirect to secrets.
-    res.redirect("/stu_reg/reg/");
-  }
+   //Successful authentication, redirect to secrets.
+   res.redirect("/stu_reg/reg/");
+    }
 );
-
-//Forgot user password
-
-// student.get("/forgotpassworduser", (req, res, next) => {
-// res.render("forgot_pass.hbs");
-// });
-//
-// student.get("/reset_password/:token",(req,res,next)=>
-// {
-// res.render("passwordreset")
-// })
-//
-//
-//
-// student.post('/forgotPassword',async (req,res)=>
-// {
-// var forgotpassuser = await Student.findOne({ email: req.body.email })
-// console.log(forgotpassuser.email)
-// var token = jwt.sign(
-// { email:forgotpassuser.email },
-// process.env.JWTKEY,
-// { expiresIn: 60*10 }
-// );
-//
-// var messagepattern=`http://localhost:5000/student/reset_password/${token}`
-// var option = {
-// email:forgotpassuser.email,
-// subject:"Password reset token valid for 10MIN",
-//
-// message:messagepattern
-//
-// }
-// await mailer(option)
-// res.redirect(`/student/reset_password/${token}`)
-//
-// })
-//
-//
 
 //SIGN_UP
 student.get("/signup", (req, res, next) => {
@@ -131,30 +91,28 @@ student.post("/signup", (req, res, next) => {
   Student.find({ email: req.body.email })
     .then((result) => {
       if (result.length >= 1) {
-       // res.redirect("/student/login");
-        //console.log("EMAIL_ID ALREADY EXIST");
-        res.render('Stud_signup',{
-          title: 'Email-id alrady exist'})
-
+        console.log("EMAIL_ID ALREADY EXIST");
       } else {
         bcrypt.hash(req.body.password, 10, function (err, hash) {
           // Store hash in your password DB.
           if (err) {
             console.log(err);
           } else {
+           // passport.authenticate("local")(req,res,function(){res.redirect('/stu_reg/reg/')})
             var student = new Student({
               _id: mongoose.Types.ObjectId(),
               name: req.body.user_name,
               email: req.body.email,
               password: hash,
+              
+             
             });
-            student.save().
-            then((data) => {
+            student.save().then((data) => {
               req.session.signup = data._id;
               console.log("SIGN_UP SESSION", req.session.signup);
               console.log("SIGN_UP DATA  :-", data);
               //res.redirect(`/stu_reg/reg?_id=${data._id}`)
-
+              
               res.redirect("/stu_reg/reg/");
             });
           }
@@ -165,8 +123,7 @@ student.post("/signup", (req, res, next) => {
       res.status(400).json({
         ERROR: err,
       });
-      console.log("SIGN_UP ERROR");
-      res.redirect("/student/login");
+      console.log(err);
     });
 });
 
@@ -179,9 +136,7 @@ student.post("/login", (req, res, next) => {
   Student.find({ email: req.body.email })
     .then((doc) => {
       if (doc.length < 1) {
-       
-        res.render("Stud_login",{title:"EMAIL_ID NOT FOUND"})
-        //console.log("EMAIL_ID NOT FOUND");
+        console.log("EMAIL_ID NOT FOUND");
       } else {
         bcrypt.compare(req.body.password, doc[0].password, (err, result) => {
           // result == true
@@ -189,7 +144,7 @@ student.post("/login", (req, res, next) => {
             console.log("yes");
             var token = jwt.sign(
               { email: doc[0].email, password: doc[0].password },
-              "apple",
+              process.env.JWTKEY,
               { expiresIn: "1h" }
             );
             console.log("Login token (stuent) :- ", token);
@@ -200,20 +155,17 @@ student.post("/login", (req, res, next) => {
               "STUDENT SESSION_ID :-",
               (req.session.user_id = doc[0]._id)
             );
-            req.session.token1 = token;
+            //req.session.token=token
             res.redirect("/dshbrd/");
-            
 
             //res.redirect(`/dshbrd?_id=${doc[0]._id}`)
             //res.render('stu_dash',{name:doc.name})
           }
-          res.render("Stud_login",{title2:" WRONG PASSWORD"})
         });
       }
     })
     .catch((err) => {
-      //console.log("login error", err);
-      res.redirect("/student/login");
+      console.log(err);
     });
 });
 

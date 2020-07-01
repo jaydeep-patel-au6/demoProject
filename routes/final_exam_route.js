@@ -1,16 +1,18 @@
-import express from "express";
-import auth from "../middleware/check-auth"
-const routes = express.Router();
-import FinalExam from "../controller/final_exam_controller";
+const express = require('express')
 
-const finalExam = new FinalExam();
+const routes = express.Router()
+const FinalExam = require('../controller/final_exam_controller')
 
-routes.get("/",auth.admin_token, finalExam.getfinal); // get data
+const finalExam = new FinalExam()
 
-routes.post("/",auth.admin_token, finalExam.postfinal); // post form route final exam marks
+routes.get('/', finalExam.getfinal) // get data
 
-routes.get("/:id",auth.admin_token, finalExam.idfinal); // id
+routes.post('/', finalExam.postfinal) // post form route final exam marks
 
-routes.get("/delete/:id",auth.admin_token, finalExam.deletefinal); //delete by id
+routes.get('/:id', finalExam.idfinal) // id
 
-module.exports = routes;
+routes.get('/delete/:id', finalExam.deletefinal) //delete by id
+
+module.exports = routes
+
+

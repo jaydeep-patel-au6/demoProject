@@ -26,16 +26,16 @@ var admissionInqSchema = new mongoose.Schema({
    
 })
 
-//Custom validation for email
+// Custom validation for email
 admissionInqSchema.path('email').validate((val) => {
-  var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(val);
 }, 'Invalid e-mail.');
 
-//Custom validation for mobile number
+// Custom validation for mobile number
 admissionInqSchema.path('phoneNumber').validate((val) => {
-   var phoneNumberRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
+    phoneNumberRegex = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
     return phoneNumberRegex.test(val)
 }, 'Invalid Phone Number')
-// 
+
 mongoose.model('Admission_inquiry', admissionInqSchema)

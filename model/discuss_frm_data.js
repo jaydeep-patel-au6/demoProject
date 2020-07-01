@@ -5,9 +5,7 @@ var ObjectId = Schema.ObjectId;
 var quertSchema = new Schema({
  post_id: ObjectId,
   query: {type:String},
-  stud_id: {type:String},
- // comment_id:{type:Schema.Types.ObjectId,ref:"Comment"}
- 
+  stud_id: {type:String}
   
 });
 

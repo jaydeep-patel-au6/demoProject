@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 require('../model/admission_inq_models')
 const AdmissionInq = mongoose.model('Admission_inquiry')
 
@@ -34,7 +34,7 @@ function insertRecord(req, res){
 
 //validation function for student inq form
 function handleValidationError(err, body) {
-    for (var field in err.errors) {
+    for (field in err.errors) {
         switch (err.errors[field].path) {
             case 'studentName':
                 body['studentNameError'] = err.errors[field].message;

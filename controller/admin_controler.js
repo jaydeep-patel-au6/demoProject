@@ -1,7 +1,7 @@
-import express from "express";
-import mongoose from "mongoose";
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+var express = require('express')
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
 require('dotenv').config()
 //const passport = require("passport");
 //const passportLocalMongoose = require("passport-local-mongoose");
@@ -92,12 +92,7 @@ admin.post('/signup', (req, res, next) => {
     Admin1.find({ admin_email: req.body.email })
         .then((result) => {
             if (result.length>=1) {
-               //console.log("EMAIL_ID ALREADY EXIST")
-              // res.redirect('/admin/login')
-               res.render('admin_signup',{
-                title: 'Email-id alrady exist'
-              })
-              
+                console.log("EMAIL_ID ALREADY EXIST")
             }
             else {
                 bcrypt.hash(req.body.password, 10, function (err, hash) {
@@ -150,11 +145,7 @@ admin.post('/login', async (req, res, next) => {
         console.log('admin login data',doc)
         if (doc.length<1)
         {
-            res.render("admin_login",{title:"EMAIL_ID NOT FOUND"})
-            
-               // console("EMAIL_ID NOT FOUND")
-            
-           // res.redirect('/admin/login')
+            console.log("EMAIL_ID NOT FOUND")
         }
         else
         {bcrypt.compare(req.body.password, doc[0].admin_password, (err, result)=> {
@@ -163,22 +154,17 @@ admin.post('/login', async (req, res, next) => {
                 if(result)
                 {
                     console.log("yes")
-                    var token = jwt.sign({admin_email:doc[0].admin_email,admin_password:doc[0].admin_password }, "apple", { expiresIn:'1h'});
+                    var token = jwt.sign({email:doc[0].admin_email,password:doc[0].admin_password }, process.env.JWTKEY, { expiresIn:'1h'});
                     console.log("Login token (admin) :- ", token)
                     console.log("LOGIN ID (admin)  :-", doc[0]._id)
                     req.session.user_id=doc[0]._id
 
                    console.log("Admin SESSION_ID :-",req.session.user_id=doc[0]._id )
-                    req.session.admin_token=token
+                    //req.session.token=token
                     res.redirect('/admin-deshboard')
                    
                     //res.redirect(`/dshbrd?_id=${doc[0]._id}`)
                     //res.render('stu_dash',{name:doc.name})
-                }
-                else{
-                    res.render("admin_login",{
-                      title2: 'enter password or password doesnot right'
-                    })
                 }
             });
         }

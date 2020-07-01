@@ -4,9 +4,9 @@ var ObjectId = Schema.ObjectId;
  
 var teacherSchema = new Schema({
   _id: ObjectId,
-  name: {type:String,required:true},
-  email: {type:String,required:true},
-  password: {type:String,required:true}
+  name: {type:String},
+  email: {type:String},
+  password: {type:String}
 });
 
 

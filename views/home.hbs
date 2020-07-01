@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg  navbar-fixed-top " style="position:static; top: 5px;background-color:#e01f3d">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark navbar-fixed-top " style="position:static; top: 5px">
     <h3 class="navbar-brand" href="#" style="color:#f7f7f7"><b>SMS</b></h3>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,72 @@
 
 
 <!---EVENT DETAILS-->
-    <br>
+
+<div class="container">
+
+    <!--LOGIN-->
+    <div class="card text-center  jumbotron">
+        <div class="row">
+            <div class="col-sm-6 clrclass">
+                <div class="container">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">LOGIN</h5>-->
+                            <div class="row">
+                                <div class="col-sm-6 clrclass">
+                                    <a href="teacher/login" class="btn btn-dark btn-lg btn-block"><i
+                                            class="fa fa-sign-in"></i> Teacher Login</a>
+                                </div>
+                                <div class="col-sm-6 clrclass">
+                                    <a href="student/login" class="btn btn-dark btn-lg btn-block"><i
+                                            class="fa fa-sign-in"></i> Student Login
+                                    </a>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6 clrclass">
+                <div class="container">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <!--- <h5 class="card-title">SignUp</h5>-->
+                            <div class="row">
+                                <div class="col-sm-6 clrclass">
+                                    <a href="teacher/signup" class="btn btn-dark btn-lg btn-block"><i
+                                            class="fa fa-user-plus"></i> Teacher SignUp
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 clrclass">
+                                    <a href="student/signup" class="btn btn-dark btn-lg btn-block"><i
+                                            class="fa fa-user-plus"></i> Student
+                                        SignUp</a>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!---
+        <a href="teacher/login" class="btn btn-btn-secondary btn-lg btn-block">Teacher Login </a>
+        <a href="student/login" class="btn btn-btn-secondary btn-lg btn-block">Student Login </a>-->
+
+
+
+            </div>
+
+        </div>
+    </div><br>
 
 </div>
 <div class="container">
@@ -31,22 +96,20 @@
     <div class="row">
         <div class="col-sm-12 clrclass">
 
-            <div class="text-center ">
-
-                <h5  >
-                    <h3 class="text-danger"><i class="fa fa-bullhorn"></i> ANNOUNCEMENT </h3>
-                </h5>
-
-                <div class="card-body" style=" overflow-y: auto;scrollbar-width: thin; height: 300px;">
+            <div class="card text-center jumbotron">
 
 
 
+                <div class="card-body" style=" overflow-y: scroll;scrollbar-width: thin; height: 300px;">
+                    <h5 class="card-title">
+                        <h3><i class="fa fa-bullhorn"></i> ANNOUNCEMENT </h3>
+                    </h5>
                     <table class="table table-striped" id="myTable">
                         <thead>
                             <tr>
-                                <th class="text-primary">Announcement Title</th>
-                                <th class="text-primary">Announcement Note</th>
-                                <th class="text-primary">Time</th>
+                                <th>Announcement Title</th>
+                                <th>Announcement Note</th>
+                                <th>Time</th>
 
                             </tr>
                         </thead>
@@ -72,30 +135,25 @@
 
             </div>
         </div>
-        <br>
-
 
 
         <div class="col-sm-12 clrclass">
-            <div class=" text-center ">
-                <h5 >
-                    <h3 class="text-danger"><i class="fa fa-bullhorn"></i> Time - Table </h3>
-                </h5>
-                <div class="card-body" style=" overflow-y:auto;scrollbar-width: thin; height: 300px;">
-
-
-
+            <div class="card text-center jumbotron">
+                <div class="card-body" style=" overflow-y: scroll;scrollbar-width: thin; height: 300px;">
+                    <h5 class="card-title">
+                        <h3><i class="fa fa-bullhorn"></i> Time - Table </h3>
+                    </h5>
                     <table class="table table-striped" id="myTable">
                         <thead>
                             <tr>
-                                <th class="text-primary">Class</th>
-                                <th class="text-primary">Day</th>
-                                <th class="text-primary"> Session 1 </th>
-                                <th class="text-primary">Session 1' teacher name </th>
-                                <th class="text-primary">break</th>
-                                <th class="text-primary">Session 2 </th>
-                                <th class="text-primary">Session 2' teacher name </th>
-
+                                <th>Class</th>
+                                <th>Day</th>
+                                <th>Session 1 </th>
+                                <th>Session 1' teacher name </th>
+                                <th>break</th>
+                                <th>Session 2 </th>
+                                <th>Session 2' teacher name </th>
+                               
 
                             </tr>
                         </thead>
@@ -112,7 +170,7 @@
                                 <td>{{this.teacher2}}</td>
 
 
-
+                                
                             </tr>
 
                             </tr>
@@ -126,84 +184,21 @@
     </div>
 
 </div>
-</div><br>
-
-
-
-
-<div class="container">
-
-    <!--LOGIN-->
-
-    <div class="row">
-        <div class="col-sm-6 clrclass">
-            <div class="container">
-                <div class=" text-center">
-                    <div class="card-body">
-                        <!-- <h5 class="card-title">LOGIN</h5>-->
-                        <div class="row">
-                            <div class="col-sm-6 clrclass">
-                                <a href="teacher/login" class="btn btn-primary btn-lg btn-block"><i
-                                        class="fa fa-sign-in"></i> Teacher Login</a>
-                            </div>
-                            <div class="col-sm-6 clrclass">
-                                <a href="student/login" class="btn btn-primary btn-lg btn-block"><i
-                                        class="fa fa-sign-in"></i> Student Login
-                                </a>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-sm-6 clrclass">
-            <div class="container">
-                <div class=" text-center">
-                    <div class="card-body">
-                        <!--- <h5 class="card-title">SignUp</h5>-->
-                        <div class="row">
-                            <div class="col-sm-6 clrclass">
-                                <a href="teacher/signup" class="btn btn-danger btn-lg btn-block"><i
-                                        class="fa fa-user-plus"></i> Teacher SignUp
-                                </a>
-                            </div>
-                            <div class="col-sm-6 clrclass">
-                                <a href="student/signup" class="btn btn-danger btn-lg btn-block"><i
-                                        class="fa fa-user-plus"></i> Student
-                                    SignUp</a>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-            <!---
-        <a href="teacher/login" class="btn btn-btn-secondary btn-lg btn-block">Teacher Login </a>
-        <a href="student/login" class="btn btn-btn-secondary btn-lg btn-block">Student Login </a>-->
-
-
-
-        </div>
-
-    </div>
-
-
-
-
-
-
-
 </div>
-<nav class="navbar navbar-dark " style="background-color:#e01f3d;width:100%">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-dark bg-dark">
     <div class="container" style="color:#f7f7f7">
         <div class="row container">
             <div class="col-sm-4 clrclass">

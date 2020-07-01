@@ -1,10 +1,9 @@
-import express from "express";
-const routes = express.Router();
-import Deshboard from "../controller/admin_deshboard_controller";
-import auth from "../middleware/check-auth"
+const express = require('express')
+const routes = express.Router()
+const Deshboard = require('../controller/admin_deshboard_controller')
 
-const deshboard = new Deshboard();
+const deshboard = new Deshboard()
 
-routes.get("/", auth.admin_token,deshboard.gethomepage);
+routes.get('/', deshboard.gethomepage)
 
-module.exports = routes;
+module.exports = routes

@@ -1,16 +1,17 @@
-import express from "express";
-const routes = express.Router();
-import auth from "../middleware/check-auth"
-import Anno from "../controller/announcement_controller";
+const express = require('express')
+const routes = express.Router()
+const Anno = require('../controller/announcement_controller')
 
-const anno = new Anno();
+const anno = new Anno()
 
-routes.get("/", anno.getAnno); // announcemnet form route
+routes.get('/', anno.getAnno) // announcemnet form route
 
-routes.post("/", anno.postAnno); // announcement form post route
+routes.patch('/', anno.postAnno) // announcement form post route
 
-routes.get("/:id",auth.admin_token, anno.idAnno); // announcement id
+routes.get('/:id', anno.idAnno) // announcement id
 
-routes.get("/delete/:id",auth.admin_token, anno.deleteAnno); // announcement delete by id
+routes.get('/delete/:id', anno.deleteAnno) // announcement delete by id
 
-module.exports = routes;
+
+
+module.exports = routes

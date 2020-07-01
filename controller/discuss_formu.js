@@ -1,34 +1,40 @@
-import express from "express";
-import mongoose from "mongoose";
-import discuss_frm_data from "../model/discuss_frm_data";
-import comment_data from "../model/comment";
-
+var express = require("express");
+var mongoose = require("mongoose");
+var discuss_frm_data = require("../model/discuss_frm_data");
+var comment_data = require("../model/comment");
 var forum = express.Router();
 //forum.use(express.static('public'))
 
 forum.get("/", async (req, res) => {
   var cpid=req.session.postid
- //var data123 = await discuss_frm_data.find({}).populate("comment_id")  //COLLECTING POST DATA 
-   var data1234 = await discuss_frm_data.aggregate([
-  // {$match:{"post_id":"5ef683f540f2e035acbd22b1"}},
-  {$lookup:
-      {
-        from:"comment_data",
-      localField:"5ef68a3c10ace92bcc218b93",
-      foreignField:"5ef68a3c10ace92bcc218b93",
-      as: "COMBODATA_POST_QUERY"
-    }
-  }])
-
-
-  var postdata=await comment_data.find({stud_id12 : cpid})  //COLLECTING COMMENT 
+  var data123 = await discuss_frm_data.find();
+  var postdata=await comment_data.find({stud_id12 : cpid})
   console.log("comment data  line number 11   :-",postdata)
-  res.render("discuss_frm.hbs", {
-    frmQuery: data1234,
-   cmdata:postdata 
-    });
-  console.log("line 16 discuss_frm   :-", data1234);
- });
+  res.render("discuss_frm.hbs", { frmQuery: data123,cmdata:postdata });
+  console.log("line 16 discuss_frm   :-", data123);
+ 
+  
+});
+
+
+
+
+
+//REPLY
+
+// forum.post("/:id", (req, res) => {
+  // console.log("REPLY LINE  15  :-", req.params);
+  // var comment_id=req.params.id
+  //res.send("done");
+  // var comment_box = new comment_data({
+    // _id: mongoose.Types.ObjectId(),
+    // commentBox: req.body.cb,
+    // stud_id12: comment_id,
+  // });
+ //comment_box.save();
+  // console.log("comment data  line 61  :-", comment_box);
+// });
+
 
 
 
@@ -36,8 +42,8 @@ forum.get("/", async (req, res) => {
 
 //Query
 forum.post("/:type/:reply_id1", (req, res) => {
-  var cm = req.params.type;   //POST_ID
-  var oo1 = req.params.reply_id1;   //CHECKING CONDITION
+  var cm = req.params.type;
+  var oo1 = req.params.reply_id1;
   console.log("param      :", cm);
 
   //POSTING QUERY
@@ -69,7 +75,7 @@ forum.post("/:type/:reply_id1", (req, res) => {
     var comment_box = new comment_data({
       _id: mongoose.Types.ObjectId(),
       commentBox: req.body.cb,
-      post_id: cm,
+      stud_id12: cm,
     });
     comment_box.save();
     console.log("comment data  line 61  :-", comment_box);
@@ -79,23 +85,6 @@ forum.post("/:type/:reply_id1", (req, res) => {
 
   res.redirect("/discussion");
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = forum;

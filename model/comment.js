@@ -5,9 +5,7 @@ var ObjectId = Schema.ObjectId;
 var commentSchema = new Schema({
   _id: ObjectId,
   commentBox: {type:String},
-  post_id:{type:String}   //same as post_id
-  //stud_id12: {type:Schema.Types.ObjectId,ref:"Discussion_forum"}
-
+  stud_id12: {type:String}
   
 });
 

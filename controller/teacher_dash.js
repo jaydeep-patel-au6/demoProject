@@ -1,61 +1,63 @@
-import express from "express";
-import mongoose from "mongoose";
+var express=require('express')
+var mongoose = require('mongoose');
+
 
 //SCHEMA
-import Ticket from "../model/ticket";
-import student_login from "../model/student.js";
-import tec_exam from "../model/tec_exam";
-import tec_test from "../model/tec_test";
-import auth from "../middleware/check-auth"
-import teacher_model from "../model/teacher";
+var Ticket=require('../model/ticket')
+var student_login=require('../model/student.js')
+var tec_exam=require('../model/tec_exam')
+var tec_test=require('../model/tec_test')
 
 //ROUTE
-var teacher = express.Router();
-teacher.use(express.static("public"));
+var teacher = express.Router()
+teacher.use(express.static('public'))
+
 
 //TEACHER DASHBOARD
-teacher.get("/",async (req, res, next) => {
-  console.log("Teacher deshboard data   :-", req.session.teachersession_id);
-  // var teacher_data = await teacher_model.find({_id: req.session.teachersession_id });
-  //console.log("Teacher deshboard data   :-",teacher_data)
+teacher.get('/',(req,res,next)=>
+{
+    res.render('tec_dash')
+})
 
-  res.render("tec_dash");
-});
 
 //TEST MARK
-teacher.post("/:type", async (req, res, next) => {
-  const type = req.params.type;
-  if (type === "monthly") {
-    //MONTHLY TEST MARK
-    var test = await new tec_test({
-      _id: mongoose.Types.ObjectId(),
-      name: req.body.name,
-      student_id: req.body.student_id,
-      phy: req.body.phy,
-      chem: req.body.che,
-      math: req.body.math,
-      eng: req.body.eng,
-      hindi: req.body.hindi,
-    });
-    console.log(" TEST DATA  :- ", test);
-    test.save();
-  } else {
-    var test1 = await new tec_exam({
-      //SIX MONTH MARK DETAILS
-      _id: mongoose.Types.ObjectId(),
-      name: req.body.name,
-      student_id: req.body.student_id,
-      phy: req.body.phy,
-      chem: req.body.che,
-      math: req.body.math,
-      eng: req.body.eng,
-      hindi: req.body.hindi,
-    });
-    console.log("EXAM DATA :-", test1);
-    test1.save();
-  }
+teacher.post('/:type',async (req,res,next)=>
+{
+    const type=req.params.type
+    if(type==="monthly")     //MONTHLY TEST MARK
+    {
+        var test=await new tec_test({
+            _id:mongoose.Types.ObjectId(),
+            name:req.body.name,
+            student_id:req.body.student_id,
+            phy:req.body.phy,
+            chem:req.body.che,
+            math:req.body.math,
+            eng:req.body.eng,
+            hindi:req.body.hindi
+        })
+        console.log(" TEST DATA  :- ", test)
+        test.save()
+        
+    }
+    else {
 
-  res.redirect("/teacher/");
-});
+        var test1=await new tec_exam({    //SIX MONTH MARK DETAILS
+            _id:mongoose.Types.ObjectId(),
+            name:req.body.name,
+            student_id:req.body.student_id,
+            phy:req.body.phy,
+            chem:req.body.che,
+            math:req.body.math,
+            eng:req.body.eng,
+            hindi:req.body.hindi
+        })
+        console.log("EXAM DATA :-" ,test1)
+        test1.save()
+    }
 
-module.exports = teacher;
+    res.redirect('/teacher/')
+})
+
+
+module.exports=teacher

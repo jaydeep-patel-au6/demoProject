@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 require('../model/final_exam_model')
 const FM = mongoose.model('Finalexam')
 
@@ -31,14 +31,14 @@ class final {
      //find id of final exam marks
    idfinal(req, res){
     FM.findById(req.params.id, (err, doc) => {
-       
+        if (!err) {
             res.render("admin/final", {
                 viewTitle1: "Update Marks",
                 viewTitle2: 'final mark list List',
                 fM: doc,
                 
             });
-        
+        }
     }).lean();
    }
   

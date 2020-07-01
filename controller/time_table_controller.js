@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 require('../model/timetable_model')
 const TT = mongoose.model('Timetable')
 
@@ -35,14 +35,14 @@ class timetable{
    idTimetable(req, res){
        console.log(req.body)
     TT.findById(req.params.id, (err, doc) => {
-       
+        if (!err) {
             res.render("admin/timetable", {
                 viewTitle1: "Update Timetable",
                 viewTitle2: 'timetable List',
                 tt: doc,
                 
             });
-        
+        }
     }).lean();
     ;
    }
@@ -101,7 +101,7 @@ function updateRecordtt(req, res) {
 }
 
 function handleValidationErrortt(err, body) {
-    for (var field in err.errors) {
+    for (field in err.errors) {
         switch (err.errors[field].path) {
             case 'class':
                 body['classError'] = err.errors[field].message;
@@ -119,11 +119,11 @@ function handleValidationErrortt(err, body) {
                 body['session2Error'] = err.errors[field].message;
                 break;
             case 'teacher2':
-                body['teacher2Error'] = err.errors[field].message;
+                body['classError'] = err.errors[field].message;
                 break;
-           
-           
-           
+            case 'day':
+                body['dayError'] = err.errors[field].message;
+                break;
             default:
                 break;
         }

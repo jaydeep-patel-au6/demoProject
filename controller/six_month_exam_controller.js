@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-//const mongoose = require('mongoose')
+ 
+const mongoose = require('mongoose')
 require('../model/six_month_exam_model')
 const SixM = mongoose.model('Sixmonthexam')
 
@@ -32,14 +32,14 @@ class sixExamMarks {
      //find id of anouncement
    idSixMarks(req, res){
     SixM.findById(req.params.id, (err, doc) => {
-        
+        if (!err) {
             res.render("admin/sixMonth", {
                 viewTitle1: "Update Marks",
                 viewTitle2: '6 month mark list List',
                 sixM: doc,
                 
             });
-       
+        }
     }).lean();
    }
   

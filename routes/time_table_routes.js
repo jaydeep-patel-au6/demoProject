@@ -1,15 +1,17 @@
-import express from "express";
-const routes = express.Router();
-import Timetable from "../controller/time_table_controller";
+const express = require('express')
+const routes = express.Router()
+const Timetable = require('../controller/time_table_controller')
 
-const timetable = new Timetable();
 
-routes.get("/", timetable.getTimetable); // get timetable
+const timetable = new Timetable()
 
-routes.post("/", timetable.postTimetable); // post request store data in collection
+routes.get('/', timetable.getTimetable) // get timetable
 
-routes.get("/:id", timetable.idTimetable); // timetABLE id
+routes.post('/', timetable.postTimetable) // post request store data in collection
 
-routes.get("/delete/:id", timetable.deleteTimetable); // TIMETABLE delete by id
+routes.get('/:id', timetable.idTimetable) // timetABLE id
 
-module.exports = routes;
+routes.get('/delete/:id', timetable.deleteTimetable) // TIMETABLE delete by id
+
+
+module.exports = routes

@@ -1,15 +1,17 @@
-import express from "express";
-const routes = express.Router();
-import Att from "../controller/student_attendance_controller";
+const express = require('express')
+const routes = express.Router()
+const Att = require('../controller/student_attendance_controller')
 
-const att = new Att();
 
-routes.get("/", att.getatt); // get attendance
+const att = new Att()
 
-routes.post("/", att.postatt); // post request store data in collection
+routes.get('/', att.getatt) // get attendance
 
-routes.get("/:id", att.idatt); // timetABLE id
+routes.post('/', att.postatt) // post request store data in collection
 
-routes.get("/delete/:id", att.deleteatt); // TIMETABLE delete by id
+routes.get('/:id', att.idatt) // timetABLE id
 
-module.exports = routes;
+routes.get('/delete/:id', att.deleteatt) // TIMETABLE delete by id
+
+
+module.exports = routes

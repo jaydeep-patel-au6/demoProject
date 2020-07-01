@@ -1,97 +1,88 @@
 <div class="container">
-  <h3>{{viewTitle1}}</h3><br><br>
+    <h3>{{viewTitle1}}</h3><br><br>
 
-  <form action="/timetable" method="POST">
-    <input type="hidden" name="_id" value="{{tt._id}}">
+<form action="/timetable" method="POST">
+<input type="hidden" name="_id" value="{{tt._id}}">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Class</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Class number(std)" name="class" value="{{tt.class}}">
+    <div class="text-danger">
+            {{tt.classError}}</div>
+    
+  </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Class</label>
-      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter Class number(std)" name="class" value="{{tt.class}}">
-      <div class="text-danger">
-        {{tt.classError}}</div>
-
-    </div>
+    <label for="exampleInputEmail1">Day</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Day" name="day" value="{{tt.day}}">
+    <div class="text-danger">
+            {{tt.dayError}}</div>
+    
+  </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Day</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter Day" name="day" value="{{tt.day}}">
-      <div class="text-danger">
-        {{tt.dayError}}</div>
-
-    </div>
+    <label for="exampleInputEmail1">Session 1 Time : 9 to 11</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Subject Name" name="session1" value="{{tt.session1}}">
+    <div class="text-danger">
+            {{tt.session1Error}}</div>
+   
+  </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Session 1 Time : 9 to 11</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter Subject Name" name="session1" value="{{tt.session1}}">
-      <div class="text-danger">
-        {{tt.session1Error}}</div>
-
-    </div>
+    <label for="exampleInputEmail1">Teacher Name for Session 1</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Class Instructor Name" name="teacher1" value="{{tt.teacher1}}">
+    <div class="text-danger">
+            {{tt.teacher1Error}}</div>
+    
+  </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Teacher Name for Session 1</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter Class Instructor Name" name="teacher1" value="{{tt.teacher1}}">
-      <div class="text-danger">
-        {{tt.teacher1Error}}</div>
-
-    </div>
+    <label for="exampleInputEmail1">Session 2 Time : 12 to 2</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Subject Name" name="session2" value="{{tt.session2}}">
+    <div class="text-danger">
+            {{tt.session2Error}}</div>
+    
+  </div>
     <div class="form-group">
-      <label for="exampleInputEmail1">Session 2 Time : 12 to 2</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter Subject Name" name="session2" value="{{tt.session2}}">
-      <div class="text-danger">
-        {{tt.session2Error}}</div>
-
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Teacher Name for Session 2</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter Class Instuctor Name    " name="teacher2" value="{{tt.teacher2}}">
-      <div class="text-danger">
-        {{tt.teacher2Error}}</div>
-
-    </div>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form><br><br>
+    <label for="exampleInputEmail1">Teacher Name for Session 2</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Class Instuctor Name    " name="teacher2" value="{{tt.teacher2}}">
+    <div class="text-danger">
+            {{tt.teacher2Error}}</div>
+    
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form><br><br>
 </div>
 <h3>{{viewTitle2}}</h3><br>
 
 
 <!-- timetable all data list -->
 <table class="table table-striped" id="myTable">
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Day</th>
-      <th>Session 1 </th>
-      <th>Session 1' teacher name </th>
-      <th>break</th>
-      <th>Session 2 </th>
-      <th>Session 2' teacher name </th>
+        <thead>
+        <tr>
+            <th>Class</th>
+            <th>Day</th>
+            <th>Session 1  </th>
+            <th>Session 1' teacher name </th>
+            <th>break</th>
+            <th>Session 2  </th>
+            <th>Session 2' teacher name </th>
+            
+        </tr>
+    </thead>
 
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each list2}}
-    <tr>
-      <td>{{this.class}}</td>
-      <td>{{this.day}}</td>
-      <td>{{this.session1}}&nbsp;<b>9 to 11</b></td>
-      <td>{{this.teacher1}}</td>
-      <td><b>11 to 12</b></td>
-      <td>{{this.session2}}&nbsp;<b>12 to 2</b></td>
-      <td>{{this.teacher2}}</td>
-     <td><a href="/timetable/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
-      <a href="/timetable/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i
-          class="fa fa-trash fa-lg" aria-hidden="true"></i></a></td> 
-
-
-
-    </tr>
-
-    </tr>
-    {{/each}}
-  </tbody>
+    <tbody>
+        {{#each list2}}
+        <tr>
+            <td>{{this.class}}</td>
+            <td>{{this.day}}</td>
+            <td>{{this.session1}}&nbsp;<b>9 to 11</b></td>
+            <td>{{this.teacher1}}</td>
+            <td><b>11 to 12</b></td>
+            <td>{{this.session2}}&nbsp;<b>12 to 2</b></td>
+            <td>{{this.teacher2}}</td>
+            
+            
+            
+           </tr>
+            
+        </tr>
+        {{/each}}
+    </tbody>
 </table>

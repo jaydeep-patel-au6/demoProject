@@ -1,17 +1,22 @@
-import express from "express";
-import auth from "../middleware/check-auth"
+const express = require('express')
+const Admission = require('../controller/admission_inq_controller') // controller for routes
+const routes = express.Router()
 
-import Admission from "../controller/admission_inq_controller";
-const routes = express.Router();
 
-const admission = new Admission();
 
-routes.get("/", admission.admissionInqGet); //admission inq form route
+const admission = new Admission()
 
-routes.post("/",admission.admissionInqPost); // admission inq post route
 
-routes.get("/list", admission.admissionInqList); // admission inq display data route
 
-routes.get("/delete/:id", admission.admissionInqDelete); // admission inq data delete by id
+routes.get('/', admission.admissionInqGet) //admission inq form route
 
-module.exports = routes;
+routes.post('/', admission.admissionInqPost) // admission inq post route
+
+routes.get('/list', admission.admissionInqList) // admission inq display data route
+
+routes.get('/delete/:id', admission.admissionInqDelete) // admission inq data delete by id
+
+
+
+
+module.exports = routes

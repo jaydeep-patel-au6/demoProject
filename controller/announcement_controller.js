@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 require('../model/anno_model')
 const Anno = mongoose.model('Announcement')
 
@@ -37,14 +37,14 @@ postAnno(req, res){
 //find id of anouncement
 idAnno(req, res){
  Anno.findById(req.params.id, (err, doc) => {
-    
+     if (!err) {
          res.render("admin/anno", {
              viewTitle1: "Update Announcement",
              viewTitle2: 'Announcement List',
              anno: doc,
              
          });
-     
+     }
  }).lean();
 }
 
@@ -89,20 +89,27 @@ function insertRecordAnno(req, res){
 
 //update announcement function
  function updateRecordAnno(req, res) {
+ Anno.updateOne({ _id: req.body._id },{ title: req.body.title,note:req.body.note}).then ((data)=>
+ {
+     console.log(data)
+     return res.redirect('/anno');
 
-    Anno.findOneAndUpdate({ _id: req.body._id }, req.body, { new: true }, (err, doc) => {
-        if (!err) { res.redirect('/anno'); }
+ })
+ .catch((err) => {console.log(err)})
+
+
+    // { new: true}, (err, doc) => {
+    //     if (!err) { res.redirect('/anno'); }
        
-            else{
-                console.log('Error during timetable update : ' + err);
-            }
-    });
-
+    //         else{
+    //             console.log('Error during record update : ' + err);
+    //         }
+    //});
  }
 
 //validation for announcement
 function handleValidationErrorAnno(err, body) {
-    for (var field in err.errors) {
+    for (field in err.errors) {
         switch (err.errors[field].path) {
             case 'title':
                 body['titleError'] = err.errors[field].message;

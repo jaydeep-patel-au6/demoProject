@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose')
 require('../model/stu_reg')
 const Student = mongoose.model('Stud_Reg')
 

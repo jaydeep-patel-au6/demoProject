@@ -12,10 +12,9 @@ body {
 
 .sidenav {
     height: 100%;
-    background-color: #e01f3d;
+    background-color: #000;
     overflow-x: hidden;
     padding-top: 20px;
-   
 }
 
 
@@ -71,9 +70,7 @@ body {
 }
 
 .btn-black{
-    
-    background-color: #e01f3d !important;
-   
+    background-color: #000 !important;
     color: #fff;
 }
 

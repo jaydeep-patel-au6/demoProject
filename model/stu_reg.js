@@ -6,11 +6,10 @@ const stu_reg = new Schema({
   _id: ObjectId,
   stud_user:{type:String},
   name: {type:String},
-  email:{type:String},
   class: {type:Number},
   roll_no: {type:Number},
   adhar_no:{type:Number},
- 
+  email:{type:String},
   address:{type:String},
   mob_no:{type:Number},
   gender:{type:String}

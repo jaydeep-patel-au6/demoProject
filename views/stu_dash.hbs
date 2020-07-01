@@ -1,8 +1,6 @@
-<nav class="navbar navbar-light " style="position:static; top: 5px;background-color:#e01f3d;opacity:0.9">
-  {{#each  dashboard_profile_data}}
-  <span class="navbar-brand mb-0 h1" style="color:#f7f7f7">Welcome {{this.name}} !</span>
-  {{/each}}
-  <a href="/logout" class="btn btn-sm btn-danger">LogOut</a>
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Welcome {{name}} !</span>
+  <a href="/logout" class="btn btn-sm btn-dark">LogOut</a>
 </nav>
 <br>
 
@@ -19,23 +17,21 @@
     <div class="row">
       <div class="col-sm-1 clrclass"></div>
       <div class="col-sm-7 clrclass ">
-        <div  style="width: 18rem; overflow-y:auto;scrollbar-width: thin; height: 590px; opacity:1.5">
+        <div class="card jumbotron" style="width: 18rem; overflow-y: scroll;scrollbar-width: thin; height: 590px;">
           <div class="card-body">
 
-            <h5 class="card-title text-primary text-center">Profile</h5><br>
-            {{#each  dashboard_profile_data}}
-            <p class="card-text text-secondary"><b>Name:</b> {{this.name}}</p>
-            <p class="card-text text-secondary"><b>Email:</b> {{this.email}}</p>
-            <p class="card-text text-secondary"> <b>Class:</b> {{this.class}}</p>
-            <p class="card-text text-secondary"><b>Roll_No:</b> {{this.roll_no}}</p>
-            <p class="card-text text-secondary"> <b>Adhar_No:</b> {{this.adhar_no}}</p>
-            <p class="card-text text-secondary"><b>Address:</b> {{this.address}}</p>
-            <p class="card-text text-secondary"><b>Mobile_Number:</b> {{ this.mobile_number}}</p>
-            <p class="card-text text-secondary"><b>Gender:</b> {{this.gender}}</p>
-           
+            <h5 class="card-title">--Profile--</h5><br>
+            <p class="card-text"><b>Name:</b> {{name}}</p>
+
+            <p class="card-text"><b>Email:</b> {{email}}</p>
+            <p class="card-text"> <b>Class:</b> {{class}}</p>
+            <p class="card-text"><b>Roll_No:</b> {{roll_no}}</p>
+            <p class="card-text"> <b>Adhar_No:</b> {{adhar_no}}</p>
+            <p class="card-text"><b>Address:</b> {{address}}</p>
+            <p class="card-text"><b>Mobile_Number:</b> {{ mobile_number}}</p>
+            <p class="card-text"><b>Gender:</b> {{gender}}</p>
             <br>
-            <a href="/dshbrd/edit/{{this.stud_user}}" class="btn btn-danger btn-sm btn-block">Edit</a>
-             {{/each}}
+            <a href="/dshbrd/edit/{{id}}" class="btn btn-dark btn-sm btn-block">Edit</a>
 
           </div>
         </div>
@@ -53,21 +49,21 @@
     <div class="row">
       <div class="col-sm-12 clrclass">
         <div class="card text-center">
-          <div class="card-header text-primary text-center">
-            <b >MONTHLY TEST MARK</b>
+          <div class="card-header">
+            <b>MONTHLY TEST MARK</b>
           </div>
 
-          <div class="card-body" style="overflow-y: auto;scrollbar-width: thin; height: 108px;">
+          <div class="card-body" style="overflow-y: scroll;scrollbar-width: thin; height: 108px;">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col" class="text-secondary">Test_id.</th>
-                  <th scope="col" class="text-secondary">Name</th>
-                  <th scope="col" class="text-secondary">Phy.</th>
-                  <th scope="col" class="text-secondary">Chem.</th>
-                  <th scope="col" class="text-secondary">Math.</th>
-                  <th scope="col" class="text-secondary">Eng.</th>
-                  <th scope="col" class="text-secondary">Hindi</th>
+                  <th scope="col">Test_id.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Phy.</th>
+                  <th scope="col">Chem.</th>
+                  <th scope="col">Math.</th>
+                  <th scope="col">Eng.</th>
+                  <th scope="col">Hindi</th>
                 </tr>
               </thead>
               <tbody>
@@ -101,20 +97,20 @@
     <div class="row">
       <div class="col-sm-12 clrclass">
         <div class="card text-center ">
-          <div class="card-header text-primary text-center">
+          <div class="card-header">
             <b> EXAM MARKS (6 MONTH'S)</b>
           </div>
-          <div class="card-body" style="overflow-y: auto;scrollbar-width: thin; height: 104px; ">
+          <div class="card-body" style="overflow-y: scroll;scrollbar-width: thin; height: 104px; ">
             <table class="table table-striped">
               <thead>
                 <tr>
-                  <th scope="col" class="text-secondary">Test_id.</th>
-                  <th scope="col"class="text-secondary">Name</th>
-                  <th scope="col"class="text-secondary">Phy.</th>
-                  <th scope="col" class="text-secondary">Chem.</th>
-                  <th scope="col" class="text-secondary">Math.</th>
-                  <th scope="col" class="text-secondary">Eng.</th>
-                  <th scope="col" class="text-secondary">Hindi</th>
+                  <th scope="col">Test_id.</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Phy.</th>
+                  <th scope="col">Chem.</th>
+                  <th scope="col">Math.</th>
+                  <th scope="col">Eng.</th>
+                  <th scope="col">Hindi</th>
 
                 </tr>
 
@@ -157,21 +153,21 @@
     <div class="row">
       <div class="col-sm-12 clrclass">
         <div class="card text-center">
-          <div class="card-header text-primary text-center">
+          <div class="card-header">
             <b>Ticket / Application sestion </b>
           </div>
-          <div class="card-body" style=" overflow-y: auto;scrollbar-width: thin; height: 178px;">
+          <div class="card-body" style=" overflow-y: scroll;scrollbar-width: thin; height: 178px;">
             <form method="POST" action="/dshbrd/">
               <div class="form-group card-text">
-                <label for="exampleFormControlInput1" class="text-secondary"><b>Title</b></label>
+                <label for="exampleFormControlInput1"><b>Title</b></label>
                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Title" name="title">
               </div>
               <div class="form-group  card-text">
-                <label for="exampleFormControlTextarea1" class="text-secondary"><b>Discription</b></label>
+                <label for="exampleFormControlTextarea1"><b>Discription</b></label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Concern......"
                   name="concern"></textarea>
               </div>
-              <button type="submit" class="btn btn-danger">Submit</button>
+              <button type="submit" class="btn btn-dark">Submit</button>
             </form>
 
           </div>
@@ -189,24 +185,28 @@
 
       <div class="col-sm-7 clrclass ">
 
-        <div  style="width: 18rem; overflow-y:auto;scrollbar-width: thin; height: 590px;">
+        <div class="card jumbotron" style="width: 18rem; overflow-y: scroll;scrollbar-width: thin; height: 590px;">
           <div class="card-body">
-            <h5 class="card-title text-primary text-center">Class Rank</h5>
-            <p class="card-text text-center"><b>Rank:</b> <i>5th in class</i></p>
+            <h5 class="card-title">--ATTENDENCE--</h5><br>
+
+            <p class="card-text"><b>Monthly:</b> {{email}}</p>
+            <p class="card-text"> <b>Total:</b> {{class}}</p><br>
+            <h5 class="card-title">--Class Rank--</h5>
+            <p class="card-text"><b>Rank:</b> {{name}}</p>
             <br>
-            <h5 class="card-title text-primary text-center"> Remark</h5>
-            <p class="card-text text-center"><b>Remark:</b> <i>Average he can do better</i> </p>
-            <h5 class="card-title text-primary text-center"> Forum</h5>
-            <a href="/discussion" class="btn btn-danger" style="margin-left: 83px;">Forum</a><br>
-            <h5 class="card-title text-primary text-center">CheckStatus</h5>
-            <button type="button" style="margin-left: 80px;" class="btn btn-danger center card-text text-center" data-toggle="modal" name="button" value="check_status"
-              data-target="#exampleModalCenter">Status</button>
+            <h5 class="card-title">-- Remark--</h5>
+            <p class="card-text"><b>Remark:</b> {{name}}</p>
+            <h5 class="card-title">-- Forum--</h5>
+            <a href="/discussion" class="btn btn-dark card-text">Discussion Forum</a>
+            <h5 class="card-title">--CheckStatus--</h5>
+            <button type="button" class="btn btn-dark card-text" data-toggle="modal" name="button" value="check_status"
+              data-target="#exampleModalCenter">CheckStatus</button>
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Ticket Status</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Ticket Status</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -249,69 +249,156 @@
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+    <!--- TICKET STATUS-->
+
+
+    <!-- <div class="row">
+      <div class="col-sm-5 clrclass " >
+        <div class="card jumbotron" style="width: 18rem; height:11rem; overflow-y: scroll;scrollbar-width: thin;">
+         
+          <a href="/discussion" class="btn btn-dark" >Discussion Forum</a><br>
+          <button type="button" class="btn btn-dark" data-toggle="modal" name="button" value="check_status"
+           data-target="#exampleModalCenter">CheckStatus</button>
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Ticket Status</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" style=" overflow-y: scroll;scrollbar-width: thin; height: 300px;">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Ticket_Id</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each tickets}}
+                      <tr>
+                        <th scope="row">{{this._id}}</th>
+                        <td>{{this.title}}</td>
+                        {{#if this.status}}
+                         <td>Resolved</td>
+                         {{else}}
+                          <td>Progress</td>
+                         {{/if}}
+                       
+                        <td>
+                          <form method="POST" action="/dshbrd/{{this._id}}?hemant=delete">
+                             <button type="submit" class="btn btn-primary">Remove</button>
+                          </form>
+                        </td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+      </div>
+    </div>-->
   </div>
-</div>
-</div>
-</div>
-<div class="container text-primary text-center"><h4>
-  ATTENDENCE
-</h4></div>
+  <div class="container" style="overflow-y: scroll;scrollbar-width: thin; height: 104px; ">
+    <h4>Attandance</h4>
+
  
-<div class="container" style="overflow-y: auto;scrollbar-width: thin; height: 104px; ">
- <table class="table table-striped" id="myTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Class</th>
-        <th>Roll No</th>
-        <th>Student id</th>
-        <th>Jan</th>
-        <th>Fab</th>
-        <th>March</th>
-        <th>April</th>
-        <th>May</th>
-        <th>June</th>
-        <th>July</th>
-        <th>Aug</th>
-        <th>Sept</th>
-        <th>Oct</th>
-        <th>Nov</th>
-        <th>Dec</th>
+    <table class="table table-striped" id="myTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Class</th>
+          <th>Roll No</th>
+          <th>Student id</th>
+          <th>Jan</th>
+          <th>Fab</th>
+          <th>March</th>
+          <th>April</th>
+          <th>May</th>
+          <th>June</th>
+          <th>July</th>
+          <th>Aug</th>
+          <th>Sept</th>
+          <th>Oct</th>
+          <th>Nov</th>
+          <th>Dec</th>
+
+         
+
+        </tr>
+      </thead>
+
+      <tbody>
 
 
 
-      </tr>
-    </thead>
 
-    <tbody>
-      {{#each student_attandance_dashbrd_data}}
-      <tr>
-        <td>{{this.name}}</td>
-        <td>{{this.class}}</td>
-        <td>{{this.roll_no}}</td>
-        <td>{{this.student_id}}</td>
-        <td>{{this.jan}}</td>
-        <td>{{this.feb}}</td>
-        <td>{{this.march}}</td>
-        <td>{{this.april}}</td>
-        <td>{{this.may}}</td>
-        <td>{{this.june}}</td>
-        <td>{{this.july}}</td>
-        <td>{{this.aug}}</td>
-        <td>{{this.sept}}</td>
-        <td>{{this.oct}}</td>
-        <td>{{this.nov}}</td>
-        <td>{{this.dec}}</td>
-      </tr>
-      {{/each}}
+        {{#each a}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.class}}</td>
+          <td>{{this.roll_no}}</td>
+          <td>{{this.student_id}}</td>
+          <td>{{this.jan}}</td>
+          <td>{{this.fb}}</td>
+          <td>{{this.march}}</td>
+          <td>{{this.april}}</td>
+          <td>{{this.may}}</td>
+          <td>{{this.june}}</td>
+          <td>{{this.july}}</td>
+          <td>{{this.aug}}</td>
+          <td>{{this.sept}}</td>
+          <td>{{this.oct}}</td>
+          <td>{{this.nov}}</td>
+          <td>{{this.dec}}</td>
 
-      </tr>
 
-    </tbody>
+
+        </tr>
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  </tbody>
   </table>
-</div>
-</tbody>
-</table>
-</div>
+ </div>
 
 </div>

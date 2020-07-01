@@ -6,9 +6,9 @@ var ObjectId = Schema.ObjectId;
  
 var adminSchema = new Schema({
  _id: ObjectId,
-  admin_name: {type:String,required:true},
-  admin_email: {type:String,required:true},
-  admin_password: {type:String,required:true},
+  admin_name: {type:String},
+  admin_email: {type:String},
+  admin_password: {type:String},
   //googleId: String,
   //role:{type:String}
 });
