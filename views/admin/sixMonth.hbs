@@ -1,0 +1,100 @@
+<div class="container">
+    <h3>{{viewTitle1}}</h3><br><br>
+
+<form action="/marksix" method="POST">
+<input type="hidden" name="_id" value="{{sixM._id}}">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter student name" name="name" value="{{sixM.name}}">
+    <div class="text-danger">
+            {{sixM.nameError}}</div>
+   
+  </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Class</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter class" name="class" value="{{sixM.class}}">
+    <div class="text-danger">
+            {{sixM.classError}}</div>
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Roll No</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter roll number" name="roll_no" value="{{sixM.roll_no}}">
+    <div class="text-danger">
+            {{sixM.roll_noError}}</div>
+    
+  </div>
+    <div class="form-group">
+    <label for="exampleInputEmail1">Physics</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter physics marks" name="phy" value="{{sixM.phy}}">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">chemestry</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Chm marks " name="chm" value="{{sixM.chm}}">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Maths</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter maths mark " name="maths" value="{{sixM.maths}}">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">English</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter English marks" name="english" value="{{sixM.english}}">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Computer</label>
+    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Computer Marks " name="computer" value="{{sixM.computer}}">
+    
+  </div>
+ 
+    
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form><br><br>
+</div>
+<h3>{{viewTitle2}}</h3><br>
+
+
+<!-- timetable all data list -->
+<table class="table table-striped" id="myTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Roll No</th>
+            <th>Phy</th>
+            <th>Chm</th>
+            <th>Maths</th>
+            <th>Eng</th>
+            <th>Com</th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each list2}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.class}}</td>
+            <td>{{this.roll_no}}</td>
+            <td>{{this.phy}}</td>
+            <td>{{this.chm}}</td>
+            <td>{{this.maths}}</td>
+            <td>{{this.english}}</td>
+            <td>{{this.computer}}</td>
+            
+            
+            
+             <td>
+                <a href="/marksix/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="/marksix/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+           </tr>
+            
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

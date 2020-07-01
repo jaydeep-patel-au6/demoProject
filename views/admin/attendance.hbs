@@ -1,0 +1,160 @@
+<div class="container">
+   <h3>{{viewTitle1}}</h3><br><br>
+
+   <form action="/att" method="POST">
+      <input type="hidden" name="_id" value="{{att._id}}">
+      <div class="form-group">
+         <label for="exampleInputEmail1">Name</label>
+         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter Student name" name="name" value="{{att.name}}">
+         <div class="text-danger">
+            {{att.nameError}}</div>
+
+      </div>
+      <div class="form-group">
+         <label for="exampleInputEmail1">Class</label>
+         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter class std" name="class" value="{{att.class}}">
+         <div class="text-danger">
+            {{att.classError}}</div>
+
+      </div>
+      <div class="form-group">
+         <label for="exampleInputEmail1">Roll_no</label>
+         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter Roll_no " name="roll_no" value="{{att.roll_no}}">
+         <div class="text-danger">
+            {{att.roll_noError}}</div>
+
+      </div>
+      <div class="form-group">
+         <label for="exampleInputPassword1">Student_id</label>
+         <input type="text" pattern="[A-Za-z0-9]{1,}" class="form-control" id="exampleInputPassword1"
+            placeholder="Student_id" name="student_id" value="{{att.student_id}}">
+              <div class="text-danger">
+     {{att.student_idError}}</div>
+      </div>
+
+
+      <label for="exampleInputEmail1">Attandance Monthwise in %</label>
+      <div class="row form-group">
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="jan" name="jan" value="{{att.jan}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="feb" name="feb" value="{{att.feb}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="march" name="march" value="{{att.march}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="april" name="april" value="{{att.april}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="may" name="may" value="{{att.may}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="june" name="june" value="{{att.june}}">
+         </div>
+
+      </div><br>
+      <div class="row form-group">
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="july" name="july" value="{{att.july}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="aug" name="aug" value="{{att.aug}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="sept" name="sept" value="{{att.sept}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="oct" name="oct" value="{{att.oct}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="nov" name="nov" value="{{att.nov}}">
+         </div>
+         <div class="col">
+            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="dec" name="dec" value="{{att.dec}}">
+         </div>
+
+
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form><br><br>
+</div>
+<h3>{{viewTitle2}}</h3><br>
+
+
+<!-- attendance all data list -->
+<table class="table table-striped" id="myTable">
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Class</th>
+         <th>Roll No</th>
+         <th>Student id</th>
+         <th>Jan</th>
+         <th>Fab</th>
+         <th>March</th>
+         <th>April</th>
+         <th>May</th>
+         <th>June</th>
+         <th>July</th>
+         <th>Aug</th>
+         <th>Sept</th>
+         <th>Oct</th>
+         <th>Nov</th>
+         <th>Dec</th>
+
+         <th>Update / Delete</th>
+
+      </tr>
+   </thead>
+
+   <tbody>
+      {{#each list2}}
+      <tr>
+         <td>{{this.name}}</td>
+         <td>{{this.class}}</td>
+         <td>{{this.roll_no}}</td>
+         <td>{{this.student_id}}</td>
+         <td>{{this.jan}}</td>
+         <td>{{this.feb}}</td>
+         <td>{{this.march}}</td>
+         <td>{{this.april}}</td>
+         <td>{{this.may}}</td>
+         <td>{{this.june}}</td>
+         <td>{{this.july}}</td>
+         <td>{{this.aug}}</td>
+         <td>{{this.sept}}</td>
+         <td>{{this.oct}}</td>
+         <td>{{this.nov}}</td>
+         <td>{{this.dec}}</td>
+
+
+         <td>
+            <a href="/att/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+            <a href="/att/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i
+                  class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+         </td>
+      </tr>
+
+      </tr>
+      {{/each}}
+   </tbody>
+</table>
+</div>

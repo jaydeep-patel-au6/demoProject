@@ -1,0 +1,39 @@
+<!-- Display student data table -->
+<h3>{{title}}</h3><br>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            
+            <th>Student Name</th>
+            <th>Parent Name</th>
+            <th>Mobile Number</th>
+            <th>Email ID</th>
+            <th>Address</th>
+            <th>Remark / Note</th>
+            
+           
+            
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.studentName}}</td>
+            <td>{{this.parentName}}</td>
+            <td>{{this.phoneNumber}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.remark}}</td>
+            
+            
+            
+            <td>
+                
+                <a href="/admission-inq/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                 
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

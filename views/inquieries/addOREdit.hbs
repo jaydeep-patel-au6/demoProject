@@ -1,0 +1,47 @@
+
+<!-- Admission inq form title -->
+<h3>{{formTitle}}</h3><br>
+
+
+<!-- Admission inq form data -->
+<form action="/admission-inq" method="POST" autocomplete="off">
+  <div class="form-group">
+    <form action="/admission-inq" method="POST" autocomplete="off">
+    <label>Student Name</label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Student's Full Name" name="studentName" value="{{admissionInq.studentName}}">
+    <div class="text-danger">
+        {{admissionInq.studentNameError}}
+    </div><br>
+
+    <label>Parent Name</label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Parent's Full Name" name="parentName" value="{{admissionInq.parentName}}">
+     <div class="text-danger">
+        {{admissionInq.parentNameError}}
+    </div><br>
+
+    <label>Mobile Phone Number</label>
+    <input type="phone" class="form-control" aria-describedby="emailHelp" placeholder="Enter Student's or Parent's 10 Digit Mobile Phone Number " name="phoneNumber" value="{{admissionInq.phoneNumber}}">
+    <div class="text-danger">
+        {{admissionInq.phoneNumberError}}
+    </div><br>
+
+    <label>Email Id</label>
+    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter Parent's email address" name="email" value="{{admissionInq.email}}">
+    <div class="text-danger">
+        {{admissionInq.emailError}}
+    </div><br>
+    <label>Address</label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Student's Adress" name="address" value="{{admissionInq.address}}"><br>
+    
+    <label>Remark / Note</label>
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Enter Your Note Or Any Remarks" name="remark" value="{{admissionInq.remark}}"><br>
+
+    
+    
+  </div>
+ 
+ 
+  <center><button type="submit" class="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp; <a href="/admission-inq" class="btn btn-secondary" >Reset</a></center>
+  
+  </button> 
+</form>

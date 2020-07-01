@@ -1,0 +1,57 @@
+<div class="container">
+    <!-- title of form  -->
+<h3>{{viewTitle1}}</h3><br>
+
+<!-- announceent form -->
+<form action="/anno" method="post">
+<input type="hidden" name="_id" value="{{anno._id}}">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" placeholder="Enter Announcemnt Title" value="{{anno.title}}">
+    <div class="text-danger">
+            {{anno.titleError}}</div>
+    </div>
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Note</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="note" placeholder="Enter Announcemnt Note" value="{{anno.note}}">
+    <div class="text-danger">
+            {{anno.noteError}}</div>
+    </div>
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form><br><br>
+</div>
+<!-- Second title for diaplay announcement data-->
+<h3>{{viewTitle2}}</h3><br>
+
+
+<table class="table table-striped" id="myTable">
+        <thead>
+        <tr>
+            <th>Announcement Title</th>
+            <th>Announcement Note</th>
+            <th>Time</th>
+            <th>Update / Delete</th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each list2}}
+        <tr>
+            <td>{{this.title}}</td>
+            <td>{{this.note}}</td>
+            <td>{{this.time}}</td>
+             <td>
+               
+                <a href="/anno/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="/anno/delete/{{this._id}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+           
+            
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

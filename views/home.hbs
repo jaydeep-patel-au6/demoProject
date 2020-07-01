@@ -1,0 +1,251 @@
+<nav class="navbar navbar-expand-lg  navbar-fixed-top " style="position:static; top: 5px;background-color:#e01f3d">
+    <h3 class="navbar-brand" href="#" style="color:#f7f7f7"><b>SMS</b></h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active " href="#" style="color:#f7f7f7"> <i class="fa fa-home"></i> Home <span
+                    class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#" style="color:#f7f7f7"> <i class="fa fa-users"></i> About Us</a>
+            <a class="nav-item nav-link font_color" href="#" style="color:#f7f7f7">Vision</a>
+        </div>
+    </div>
+    <a class="nav-item nav-link font_color" href="/adminlogin" style="right: auto;color:#f7f7f7"><i
+            class="fa fa-user"></i> Admin Login</a>
+    <a class="nav-item nav-link font_color" href="/admission-inq" style="right: auto;color:#f7f7f7"><i
+            class="fa fa-user"></i> Admission Inq Form</a>
+</nav>
+
+<br>
+
+
+<!---EVENT DETAILS-->
+    <br>
+
+</div>
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-sm-12 clrclass">
+
+            <div class="text-center ">
+
+                <h5  >
+                    <h3 class="text-danger"><i class="fa fa-bullhorn"></i> ANNOUNCEMENT </h3>
+                </h5>
+
+                <div class="card-body" style=" overflow-y: auto;scrollbar-width: thin; height: 300px;">
+
+
+
+                    <table class="table table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th class="text-primary">Announcement Title</th>
+                                <th class="text-primary">Announcement Note</th>
+                                <th class="text-primary">Time</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {{#each list2}}
+                            <tr>
+                                <td>{{this.title}}</td>
+                                <td>{{this.note}}</td>
+                                <td>{{this.time}}</td>
+
+
+
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+        <br>
+
+
+
+        <div class="col-sm-12 clrclass">
+            <div class=" text-center ">
+                <h5 >
+                    <h3 class="text-danger"><i class="fa fa-bullhorn"></i> Time - Table </h3>
+                </h5>
+                <div class="card-body" style=" overflow-y:auto;scrollbar-width: thin; height: 300px;">
+
+
+
+                    <table class="table table-striped" id="myTable">
+                        <thead>
+                            <tr>
+                                <th class="text-primary">Class</th>
+                                <th class="text-primary">Day</th>
+                                <th class="text-primary"> Session 1 </th>
+                                <th class="text-primary">Session 1' teacher name </th>
+                                <th class="text-primary">break</th>
+                                <th class="text-primary">Session 2 </th>
+                                <th class="text-primary">Session 2' teacher name </th>
+
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {{#each list1}}
+                            <tr>
+                                <td>{{this.class}}</td>
+                                <td>{{this.day}}</td>
+                                <td>{{this.session1}}&nbsp;<b>9 to 11</b></td>
+                                <td>{{this.teacher1}}</td>
+                                <td><b>11 to 12</b></td>
+                                <td>{{this.session2}}&nbsp;<b>12 to 2</b></td>
+                                <td>{{this.teacher2}}</td>
+
+
+
+                            </tr>
+
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div><br>
+
+
+
+
+<div class="container">
+
+    <!--LOGIN-->
+
+    <div class="row">
+        <div class="col-sm-6 clrclass">
+            <div class="container">
+                <div class=" text-center">
+                    <div class="card-body">
+                        <!-- <h5 class="card-title">LOGIN</h5>-->
+                        <div class="row">
+                            <div class="col-sm-6 clrclass">
+                                <a href="teacher/login" class="btn btn-primary btn-lg btn-block"><i
+                                        class="fa fa-sign-in"></i> Teacher Login</a>
+                            </div>
+                            <div class="col-sm-6 clrclass">
+                                <a href="student/login" class="btn btn-primary btn-lg btn-block"><i
+                                        class="fa fa-sign-in"></i> Student Login
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-sm-6 clrclass">
+            <div class="container">
+                <div class=" text-center">
+                    <div class="card-body">
+                        <!--- <h5 class="card-title">SignUp</h5>-->
+                        <div class="row">
+                            <div class="col-sm-6 clrclass">
+                                <a href="teacher/signup" class="btn btn-danger btn-lg btn-block"><i
+                                        class="fa fa-user-plus"></i> Teacher SignUp
+                                </a>
+                            </div>
+                            <div class="col-sm-6 clrclass">
+                                <a href="student/signup" class="btn btn-danger btn-lg btn-block"><i
+                                        class="fa fa-user-plus"></i> Student
+                                    SignUp</a>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!---
+        <a href="teacher/login" class="btn btn-btn-secondary btn-lg btn-block">Teacher Login </a>
+        <a href="student/login" class="btn btn-btn-secondary btn-lg btn-block">Student Login </a>-->
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+</div>
+<nav class="navbar navbar-dark " style="background-color:#e01f3d;width:100%">
+    <div class="container" style="color:#f7f7f7">
+        <div class="row container">
+            <div class="col-sm-4 clrclass">
+                <h4 style="font-size: medium; font-family:sans-serif;"> <i class="fa fa-address-card"></i> Address </h4>
+
+                <h6 style="font-size: small; font-family:monospace;">
+                    RB-20 Indus Town, Indore, Madhya Pradesh(M.P)
+                </h6>
+            </div>
+
+
+
+            <div class="col-sm-4 ">
+                <h4 style="font-size: medium; font-family:sans-serif;"> <i class="fa fa-phone"></i> Contact </h4>
+                <ul style="font-size: small; font-family:monospace;">
+                    <li>123456789</li>
+                    <li>123456789</li>
+                    <li>123456789</li>
+                </ul>
+
+            </div>
+            <div class="col-sm-4 clrclass">
+                <h4 style="font-size: medium; font-family:sans-serif;"> <i class="fa fa-envelope"></i> Mail_id </h4>
+                <ul style="font-size: small; font-family:monospace;">
+                    <li>hemant@123gmail.com</li>
+                    <li>shivam@gmail.com</li>
+                    <li>Saharsh@gmail.com</li>
+                </ul>
+
+            </div>
+
+
+            <button class="open-button" onclick="openForm()">Help Desk</button>
+            <div class="chat-popup" id="myForm">
+                <form class="form-container">
+                    <div class="message__area"></div>
+                    <textarea id="textarea" placeholder="Click Enter To Send Text..." name="msg" required></textarea>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</nav>

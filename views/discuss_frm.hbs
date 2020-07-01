@@ -1,0 +1,57 @@
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Discussion Forum</span>
+  <a href="/logout" class="btn btn-sm btn-dark">LogOut</a>
+</nav>
+<br>
+
+<div class="container">
+  <form method="POST" action="/discussion/ccc/post">
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">
+        <h5>Post Query</h5>
+      </label>
+      <textarea class="form-control" name="query" id="exampleFormControlTextarea1"
+        placeholder="Please Enter Your Query " rows="1"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark mb-2">SUBMIT</button>
+  </form>
+  <hr style="border: 1px solid rgb(8, 8, 8)">
+
+  {{#each frmQuery}}
+  {{#if this.query}}
+  <h5>
+    {{this.query}}
+  </h5>
+
+  <form method="POST" action="/discussion/{{this.post_id}}/Reply">
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="form-group">
+          <textarea class="form-control" name="cb" id="{{this.post_id}}" placeholder="Please Enter Your comment"
+            rows="1"></textarea>
+        </div>
+      </div>
+      
+     
+     
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-dark mb-2">Comment</button>
+      </div>
+    </div>
+  </form>
+  
+
+  {{/if}}
+  {{/each}}
+
+  <div>
+    {{#each cmdata }}
+    {{#if commentBox}}
+    <h6>{{this.commentBox}} </h6>
+    {{/if}}
+    {{/each}}
+  </div>
+  <hr style="border-top: 1px dotted #e7e0e0;">
+
+
+</div>

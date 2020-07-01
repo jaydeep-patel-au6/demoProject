@@ -1,0 +1,187 @@
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Welcome {{name}} !</span>
+    <a href="/logout" class="btn btn-sm btn-danger">LogOut</a>
+</nav>
+<br>
+<div class="container">
+    <div class="container">
+        <div class="container">
+            <div class="container">
+                <div class="row container"> </div>
+                <div class="row">
+                    <div class="col-sm-12 clrclass">
+                        <!-- TEACHER PROFILE -->
+                        <div class="card">
+                            <div class="card-header">
+                                <b>Profile</b>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6 clrclass">
+                                        <p class="card-text">TEACHER NAME</p>
+                                    </div>
+                                    <div class="col-sm-6 clrclass">
+                                        <p class="card-text">TEACHER MOBILE NUMBER</p>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-6 clrclass">
+                                        <p class="card-text">TEACHER NAME</p>
+                                    </div>
+                                    <div class="col-sm-6 clrclass">
+                                        <p class="card-text">TEACHER MOBILE NUMBER</p>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-12 clrclass ">
+                    <!-- TEACHERS BUTTON -->
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModalScrollable">
+                        ENTER TEST MARK</button>
+
+                    <!-- Modal -->
+                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle">TEST MARK </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" action="/teacher/monthly" >
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Name</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Name" name="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Student_id</label>
+                                            <input type="text" pattern="[A-Za-z0-9]{1,}" class="form-control"  id="exampleInputPassword1"
+                                                placeholder="Student_id" name="student_id">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Phy</label>
+                                            <input type="number" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Phy" name="phy">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Che</label>
+                                            <input type="number" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Che" name="che">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Math</label>
+                                            <input type="number" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Math" name="math">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Eng</label>
+                                            <input type="number" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Eng" name="eng">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Hindi</label>
+                                            <input type="number" class="form-control" name="hindi" id="exampleInputPassword1"
+                                                placeholder="Hindi">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!---EXAM MARK 6 MONTHS-->
+
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModalScrollable1">
+                        Exam Mark (6 Month's)
+                    </button>
+                    <!-- Modal -->
+                   <div class="modal fade" id="exampleModalScrollable1" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalScrollableTitle">Exam Mark </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="POST" action="/teacher/exam">
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Name</label>
+                                            <input type="text" class="form-control" id="exampleInputPassword1"
+                                                placeholder="name" name="name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Student_id</label>
+                                            <input type="text" pattern="[A-Za-z0-9]{1,}" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Student_id" name="student_id">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Phy</label>
+                                            <input type="number" name="phy" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Phy">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Che</label>
+                                            <input type="number" name="che" class="form-control" id="exampleInputPassword1"
+                                                placeholder="che">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Math</label>
+                                            <input type="number" name="math" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Math">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Eng</label>
+                                            <input type="number" name="eng" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Eng">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Hindi</label>
+                                            <input type="number" name="hindi" class="form-control" id="exampleInputPassword1"
+                                                placeholder="Hindi">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

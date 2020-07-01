@@ -1,0 +1,31 @@
+<div class="sidenav">
+  <div class="login-main-text">
+    <h2>Student Registration Page</h2>
+    <p>Register from here to access.</p>
+  </div>
+</div>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+    <div class="login-form">
+      <form method="POST" action="/student/signup">
+        <div class="form-group">
+          <label class="text-primary">User Name</label>
+          <input type="text" class="form-control" placeholder="User Name" name="user_name">
+        </div>
+        <div class="form-group ">
+          <label class="text-primary">EMAIL</label>
+          <input type="text" class="form-control" placeholder="Enter Email" name="email"><div class="text-danger">{{title}}</div>
+        </div>
+        <div class="form-group">
+          <label class="text-primary">Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="password">
+        </div>
+
+        <button type="submit" style="color:#f7f7f7;" class="btn btn-black btn-lg btn-block"
+          name="button">Register</button>
+        <a class="btn btn-black btn-block" href="/student/auth/google" role="button">
+          <span style="color: #f7f7f7;"> Sign Up with Google</span></a>
+      </form>
+    </div>
+  </div>
+</div>
